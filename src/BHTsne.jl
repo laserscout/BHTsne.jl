@@ -32,7 +32,7 @@ end
 function bh_tsne(samples;no_dims=2, initial_dims=50, perplexity=50,
                  theta=0.5, randseed=-1, verbose=false)
     
-    samples = broadcast(-, samples, mean(samples,1))
+    samples = broadcast(-, samples, mean(samples))
     cov_x = samples' * samples
     eig_val,eig_vec = eig(cov_x)
     
