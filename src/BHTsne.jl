@@ -3,7 +3,8 @@ module BHTsne
 #using ArgParse
 #using StrPack
 using PyCall
-@pyimport struct
+# @pyimport struct # error, replace with 
+pystruct = pyimport("struct")
 
 const BH_TSNE_path = joinpath(dirname(@__FILE__), "cpp/bh_tsne")
 
@@ -22,7 +23,8 @@ end
 
 
 function read_unpack(fmt, f)
-    struct.unpack(fmt, read(f, struct.calcsize(fmt)))
+    # struct.unpack(fmt, read(f, struct.calcsize(fmt)))
+    pystruct[:unpack](fmt, read(f, pystruct[:calcsize](fmt)))
 end
 
 
