@@ -52,7 +52,7 @@ function bh_tsne(samples;no_dims=2, initial_dims=50, perplexity=50,
     mktempdir() do temp_dir
         
         open(joinpath(temp_dir, "data.dat"),"w") do data_file
-            write(data_file,pystruct[:pack]("iiddi", sample_count,sample_dim, theta, perplexity,no_dims))
+            write(data_file, pystruct[:pack]("iiddi", sample_count,sample_dim, theta, perplexity,no_dims))
             nrow,ncol = size(samples)
             fmt = repeat("d",ncol)
             for i = 1:nrow
