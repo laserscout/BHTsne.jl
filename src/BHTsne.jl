@@ -4,6 +4,7 @@ module BHTsne
 #using StrPack
 using PyCall
 using Statistics
+using LinearAlgebra
 # @pyimport struct # error, replace with 
 pystruct = pyimport("struct")
 
