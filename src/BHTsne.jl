@@ -35,7 +35,7 @@ function bh_tsne(samples;no_dims=2, initial_dims=50, perplexity=50,
     
     samples = broadcast(-, samples, mean(samples))
     cov_x = samples' * samples
-    eig_val,eig_vec = eig(cov_x)
+    eig_val,eig_vec = eigen(cov_x)
     
     eig_vec = eig_vec[:,sortperm(eig_val,rev=true)]
 
